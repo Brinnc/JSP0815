@@ -1,0 +1,24 @@
+0815메모장
+<로그인세션>
+
+--오라클 sql문
+--회원테이블 정의
+create table member(
+	member_idx number primary key
+	, id varchar2(20)
+	, pass varchar2(64)
+	, name varchar2(20)
+	, email varchar2(30)
+	, regdate date default sysdate
+);
+
+--시퀀스 정의
+create sequence seq_member
+increment by 1
+start with 1;
+
+--회원 1명 넣기
+insert into member(member_idx, id, pass, name, email)
+values(seq_member.nextval, 'choisa', '1234', '승승', 'choisa0903@naver.com');
+
+commit;
